@@ -1,0 +1,55 @@
+{
+	"name": "laravel/laravel",
+	"description": "The Laravel Framework.",
+	"keywords": ["framework", "laravel"],
+	"license": "MIT",
+	"require": {
+        "ext-gd": "*",
+	  	"ext-exif": "*",
+        "laravel/framework": "4.*",
+		"davibennun/laravel-push-notification": "dev-master",
+		"aws/aws-sdk-php-laravel": ">=1.1.2",
+        "artdarek/oauth-4-laravel": "dev-master",
+        "fzaninotto/faker": "dev-master",
+        "guzzlehttp/guzzle": ">=5.3",
+        "intervention/image": "2.*",
+        "way/generators": "2.*",
+        "xethron/migrations-generator": "dev-master",
+	    "duccio/apns-php": "dev-master",
+        "codemonkeys-ru/gcm-message": "dev-master"
+	},
+    "require-dev": {
+	  "heroku/heroku-buildpack-php": "v48",
+	  "doctrine/dbal": "~2.3",
+	  "barryvdh/laravel-ide-helper": "1.*"
+    },
+	"autoload": {
+		"classmap": [
+			"app/lib",
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/database/migrations",
+			"app/database/seeds",
+			"app/tests/TestCase.php"
+		]
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"$_ artisan clear-compiled",
+			"$_ artisan optimize",
+            "$_ artisan"
+		],
+		"post-update-cmd": [
+			"$_ artisan clear-compiled",
+			"$_ artisan optimize"
+		],
+		"post-create-project-cmd": [
+			"$_ artisan key:generate"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "stable"
+}
